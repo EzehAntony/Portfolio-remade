@@ -138,8 +138,20 @@ export default function Home() {
         </li>
       </div>
 
-      <div className="contact">
-        <h3 className={ubuntu.className}>contact</h3>
+      <div className={styles.coffee}>
+        <h3 className={ubuntu.className}>Tip me</h3>
+
+        <img src="/coffee.svg" alt="" />
+        <button className={ubuntu.className}>
+          send Tip
+          <img src="/money.svg" alt="" />
+        </button>
+      </div>
+
+      <div className={styles.contact}>
+        <h3 className={ubuntu.className}>Contact</h3>
+
+        <img src="/contact.svg" alt="" />
       </div>
     </main>
   );
