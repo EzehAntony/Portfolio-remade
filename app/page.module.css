@@ -1,0 +1,246 @@
+.main {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  padding: 0 10px;
+  color: white;
+}
+
+.main header {
+  height: 60px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  background-color: black;
+  font-size: 10px;
+}
+
+.main header h1 {
+  width: fit-content;
+  color: transparent;
+  background-image: linear-gradient(45deg, white, aqua);
+  background-clip: text;
+  transition: 0.8s;
+  animation: textcolor 2s 1s infinite alternate;
+}
+
+@keyframes textcolor {
+  0% {
+  }
+  25% {
+    background-image: linear-gradient(45deg, white, white, aqua);
+  }
+
+  75% {
+    background-image: linear-gradient(45deg, aqua, aqua, white);
+  }
+}
+
+.hero {
+  min-height: 400px;
+  width: 100;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: left;
+  background-color: black;
+  padding-top: 60px;
+}
+
+.hero h1 {
+  width: fit-content;
+  color: transparent;
+  background-image: linear-gradient(45deg, aqua, #ff3e9f, hotpink);
+  background-clip: text;
+  font-size: 60px;
+  position: relative;
+}
+
+.hero h1::before {
+  content: "";
+  background-color: #fff;
+  width: 15px;
+  height: 15px;
+  border-radius: 50px;
+  position: absolute;
+  top: -20px;
+  z-index: 1;
+  left: 20px;
+}
+.hero h1::after {
+  content: "";
+  background-color: aqua;
+  width: 15px;
+  height: 15px;
+  border-radius: 50px;
+  position: absolute;
+  top: -20px;
+  z-index: 1;
+  left: 0;
+}
+
+.hero p {
+  color: #949494;
+  font-weight: 600;
+  font-size: 15px;
+  padding: 10px 0;
+}
+
+.hero button {
+  background-color: aqua;
+  padding: 10px 0;
+  width: 50%;
+  max-width: 600px;
+  border-radius: 50px;
+  border: 0;
+  outline: none;
+  font-size: 18px;
+  font-weight: 800;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 20px 0;
+  cursor: pointer;
+  transition: 0.4s;
+}
+
+.hero button:hover {
+  opacity: 0.6;
+}
+
+.hero button img {
+  width: 25px;
+}
+
+.skills {
+  padding-top: 40px;
+  display: flex;
+  flex-wrap: wrap;
+  position: relative;
+}
+
+.skills h3 {
+  width: 100%;
+  margin: 20px 0;
+  font-size: 30px;
+  color: transparent;
+  background-image: linear-gradient(45deg, white, aqua);
+  background-clip: text;
+  transition: 0.8s;
+}
+
+.skills li {
+  cursor: pointer;
+  list-style: none;
+  color: #949494;
+  font-weight: 18px;
+  padding: 10px 20px;
+  margin: 5px;
+  border: 2px solid #1d1d1d;
+  border-radius: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: 0.4s;
+}
+
+.skills li:hover {
+  background-color: #40d2ff21;
+}
+
+.skills li img {
+  width: 20px;
+  margin-right: 5px;
+}
+
+.skills li p {
+  font-weight: 600;
+  text-transform: capitalize;
+}
+
+.projects {
+  padding-top: 40px;
+  display: flex;
+  flex-wrap: wrap;
+  position: relative;
+}
+
+.projects h3 {
+  width: 100%;
+  margin: 20px 0;
+  font-size: 30px;
+  color: transparent;
+  background-image: linear-gradient(45deg, white, aqua);
+  background-clip: text;
+  transition: 0.8s;
+}
+
+.projects li {
+  min-height: 300px;
+  width: 100%;
+  background-color: #252525;
+  border-radius: 10px;
+  list-style: none;
+  padding: 10px;
+  margin: 15px 0;
+}
+
+.projects li h3 {
+  font-size: 20px;
+  font-weight: 600;
+  color: aqua;
+  text-transform: capitalize;
+}
+
+.projects li img {
+  width: 100%;
+  border-radius: 10px;
+}
+
+.projects li p {
+  color: #d4d4d4;
+  font-weight: 500;
+  padding: 10px 0;
+}
+
+@media (min-width: 600px) {
+  .main {
+    padding: 0 5%;
+  }
+
+  .hero {
+    max-width: 700px;
+  }
+
+  .hero h1 {
+    font-size: 80px;
+    max-width: 500px;
+  }
+
+  .skills {
+    max-width: 800px;
+  }
+
+  .projects {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+  }
+
+  .projects li {
+    width: 48%;
+    min-height: 350px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+  }
+
+  .projects li:nth-last-child(1) {
+    justify-self: flex-start;
+  }
+
+  .projects li img {
+    width: 100%;
+  }
+}
