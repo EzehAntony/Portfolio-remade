@@ -185,7 +185,7 @@ export default function Home() {
         </li>
       </div>
 
-      <div className={styles.coffee}>
+      {/*       <div className={styles.coffee}>
         <h3 className={ubuntu.className}>Tip me</h3>
 
         <img src="/coffee.svg" alt="" />
@@ -194,7 +194,7 @@ export default function Home() {
           <img src="/money.svg" alt="" />
           <Snowfall snowflakeCount={30} />
         </button>
-      </div>
+      </div> */}
 
       <div className={styles.contact}>
         <h3 className={ubuntu.className}>Contact</h3>
@@ -226,6 +226,7 @@ export default function Home() {
             {!loading && "send "}
           </button>
         </div>
+        <Snowfall snowflakeCount={30} />
       </div>
 
       <footer>
