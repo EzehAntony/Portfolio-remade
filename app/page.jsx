@@ -5,6 +5,11 @@ import { Inter, Ubuntu } from "@next/font/google";
 import styles from "./page.module.css";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
+import Snowfall from "react-snowfall";
+import { ClapSpinner } from "react-spinners-kit";
+import axios from "axios";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const inter = Inter({ subsets: ["latin"] });
 const ubuntu = Ubuntu({ subsets: ["latin"], weight: ["700", "300", "500"] });
@@ -66,16 +71,35 @@ export default function Home() {
     text: "",
   });
 
+  const [loading, setLoading] = useState(false);
+
   const sendMessage = async () => {
     const { from, text } = input;
-    await fetch({
+    setLoading(true);
+    await axios({
       method: "POST",
       url: "/api/contact",
-      body: {
+      data: {
         from: from,
         text: text,
       },
-    });
+    })
+      .then((res) => {
+        setLoading(false);
+        toast.success("Mail sent to Anthony", {
+          autoClose: 3000,
+          hideProgressBar: true,
+          theme: "dark",
+        });
+      })
+      .catch((err) => {
+        setLoading(false);
+        toast.success(`${err.response.data}`, {
+          autoClose: 3000,
+          hideProgressBar: true,
+          theme: "dark",
+        });
+      });
     console.log(from, text);
   };
   const router = useRouter();
@@ -166,8 +190,9 @@ export default function Home() {
 
         <img src="/coffee.svg" alt="" />
         <button className={ubuntu.className}>
-          send Tip
+          send tip
           <img src="/money.svg" alt="" />
+          <Snowfall snowflakeCount={30} />
         </button>
       </div>
 
@@ -197,20 +222,47 @@ export default function Home() {
             onClick={sendMessage}
             className={ubuntu.className}
           >
-            Send
+            <ClapSpinner loading={loading} size={14} />
+            {!loading && "send "}
           </button>
         </div>
       </div>
 
       <footer>
         <div className={styles.social}>
-          <img src="/facebook.svg" alt="" />
-          <img src="/instagram.svg" alt="" />
-          <img src="/twitter.svg" alt="" />
-          <img src="/whatsapp.svg" alt="" />
+          <img
+            src="/facebook.svg"
+            onClick={() =>
+              router.push(
+                "https://www.facebook.com/profile.php?id=100088849056244&mibextid=ZbWKwL"
+              )
+            }
+            alt=""
+          />
+          <img
+            src="/instagram.svg"
+            alt="instagram profile"
+            onClick={() => router.push("https://www.instagram.com/nazvillle")}
+          />
+          <img
+            src="/twitter.svg"
+            onClick={() =>
+              router.push(
+                "https://twitter.com/Nazvillle?t=xW9sj0bfObU9LG6vkx74UQ&s=09"
+              )
+            }
+            alt=""
+          />
+          <img
+            src="/whatsapp.svg"
+            onClick={() => router.push("wa.link/1vaasu")}
+            alt=""
+          />
         </div>
         <h3 className={ubuntu.className}>made with love</h3>
       </footer>
+      <Snowfall snowflakeCount={30} />
+      <ToastContainer />
     </main>
   );
 }

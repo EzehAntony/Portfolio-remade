@@ -1,6 +1,7 @@
 import nodemailer from "nodemailer";
 
 const handler = (req, res) => {
+  console.log(req.body)
   const transport = nodemailer.createTransport({
     service: "gmail",
     host: "smpt.gmail.com",
@@ -15,7 +16,7 @@ const handler = (req, res) => {
     to: process.env.USER,
     from: req.body.from,
     subject: "Portfolio Message",
-    text: req.body.mail,
+    text: req.body.text,
   };
 
   transport.sendMail(mailInfo, (err, info) => {
