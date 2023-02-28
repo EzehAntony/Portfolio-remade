@@ -166,7 +166,7 @@ export default function Home() {
           </p>
         </li>
 
-        <li>
+        <li onClick={() => router.push("https://crayonne-loan.vercel.app")}>
           <h3 className={ubuntu.className}>Loan app</h3>
           <img src="/loan.png" alt="" />
           <p className={ubuntu.className}>
@@ -256,7 +256,7 @@ export default function Home() {
           />
           <img
             src="/whatsapp.svg"
-            onClick={() => router.push("wa.link/1vaasu")}
+            onClick={() => router.push("https://wa.link/1vaasu")}
             alt=""
           />
         </div>
