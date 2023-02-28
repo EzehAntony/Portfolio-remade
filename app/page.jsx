@@ -4,22 +4,24 @@ import Image from "next/image";
 import { Inter, Ubuntu } from "@next/font/google";
 import styles from "./page.module.css";
 import { useRouter } from "next/navigation";
+import { useState } from "react";
 
 const inter = Inter({ subsets: ["latin"] });
 const ubuntu = Ubuntu({ subsets: ["latin"], weight: ["700", "300", "500"] });
+
 export default function Home() {
   const skills = [
     {
       img: "mongodb.svg",
-      text: "mongodb ",
+      text: "mongoDB ",
     },
     {
       img: "express.svg",
-      text: "express ",
+      text: "express",
     },
     {
       img: "react.svg",
-      text: "react ",
+      text: "react",
     },
     {
       img: "nodejs.svg",
@@ -27,15 +29,15 @@ export default function Home() {
     },
     {
       img: "html5.svg",
-      text: "html5",
+      text: "HTML5",
     },
     {
       img: "css.svg",
-      text: "css",
+      text: "CSS3",
     },
     {
       img: "gsap.svg",
-      text: "gsap",
+      text: "Greensock animation platform",
     },
     {
       img: "javascript.svg",
@@ -47,14 +49,35 @@ export default function Home() {
     },
     {
       img: "next.svg",
-      text: "next js",
+      text: "next",
     },
     {
       img: "github.svg",
       text: "github",
     },
+    {
+      img: "jquery.svg",
+      text: "jquery",
+    },
   ];
 
+  const [input, setInput] = useState({
+    from: "",
+    text: "",
+  });
+
+  const sendMessage = async () => {
+    const { from, text } = input;
+    await fetch({
+      method: "POST",
+      url: "/api/contact",
+      body: {
+        from: from,
+        text: text,
+      },
+    });
+    console.log(from, text);
+  };
   const router = useRouter();
   return (
     <main className={styles.main}>
@@ -101,7 +124,7 @@ export default function Home() {
           </p>
         </li>
 
-        <li onClick={() => router.push("https://crayonnedict-vercel.appp")}>
+        <li onClick={() => router.push("https://crayonnedict.vercel.app/")}>
           <h3 className={ubuntu.className}>Dictionary</h3>
           <img src="/dictionary.png" alt="" />
           <p className={ubuntu.className}>
@@ -110,7 +133,7 @@ export default function Home() {
           </p>
         </li>
 
-        <li onClick={() => router.push("https://amana.vercel.app")}>
+        <li onClick={() => router.push("https://amanaui.vercel.app")}>
           <h3 className={ubuntu.className}>amana</h3>
           <img src="/amana.png" alt="" />
           <p className={ubuntu.className}>
@@ -128,7 +151,7 @@ export default function Home() {
           </p>
         </li>
 
-        <li>
+        <li onClick={() => router.push("https://ezehanthony.vercel.app")}>
           <h3 className={ubuntu.className}>Portfolio</h3>
           <img src="/portfolio.png" alt="" />
           <p className={ubuntu.className}>
@@ -151,8 +174,43 @@ export default function Home() {
       <div className={styles.contact}>
         <h3 className={ubuntu.className}>Contact</h3>
 
-        <img src="/contact.svg" alt="" />
+        <div className={styles.form}>
+          <input
+            value={input.from}
+            onChange={(e) =>
+              setInput((prev) => ({ ...prev, from: e.target.value }))
+            }
+            type="text"
+            id="form"
+            placeholder="Your mail or number"
+          />
+          <textarea
+            id="form"
+            onChange={(e) =>
+              setInput((prev) => ({ ...prev, text: e.target.value }))
+            }
+            value={input.text}
+            placeholder="Your Message"
+          ></textarea>
+          <button
+            type={"submit"}
+            onClick={sendMessage}
+            className={ubuntu.className}
+          >
+            Send
+          </button>
+        </div>
       </div>
+
+      <footer>
+        <div className={styles.social}>
+          <img src="/facebook.svg" alt="" />
+          <img src="/instagram.svg" alt="" />
+          <img src="/twitter.svg" alt="" />
+          <img src="/whatsapp.svg" alt="" />
+        </div>
+        <h3 className={ubuntu.className}>made with love</h3>
+      </footer>
     </main>
   );
 }
