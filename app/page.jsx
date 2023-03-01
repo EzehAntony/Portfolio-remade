@@ -108,18 +108,22 @@ export default function Home() {
   const router = useRouter();
 
   const ref = useRef(null);
+  const g = gsap.utils.selector(ref);
+  const hero = gsap.timeline();
+  const skill = gsap.timeline();
+  const projects = gsap.timeline();
+  const contact = gsap.timeline();
 
   useLayoutEffect(() => {
     const ctx = gsap.context(() => {
-      const g = gsap.utils.selector(ref);
-      const hero = gsap.timeline();
-      const skills = gsap.timeline();
-      const projects = gsap.timeline();
-      const contact = gsap.timeline();
+      gsap.to(g("#main"), 1, {
+        autoAlpha: 0,
+      });
 
+      
       const heroAnimate = (() => {
         hero
-          .from(g("#main header h1"), { x: 200, opacity: 0 })
+          .from(g("#main header h1"), { x: 200, opacity: 1 })
           .from(g("#hero p"), { x: 100, opacity: 0 }, 0.3)
           .from(g("#hero h1"), { opacity: 0, y: 100 }, 0.6)
           .fromTo(
@@ -134,7 +138,7 @@ export default function Home() {
       })();
 
       const skillsAnimate = (() => {
-        skills.from(g("#skills h3"), {
+        skill.from(g("#skills h3"), {
           x: 50,
           opacity: 0,
           scrollTrigger: {
@@ -146,7 +150,7 @@ export default function Home() {
         });
         for (var i = 1; i < 13; i++) {
           //li
-          skills.fromTo(
+          skill.fromTo(
             g(`#skills li:nth-of-type(${i})`),
             {
               y: 80,
@@ -165,7 +169,7 @@ export default function Home() {
           );
 
           //p
-          skills.fromTo(
+          skill.fromTo(
             g(`#skills li:nth-of-type(${i}) p`),
             {
               x: 50,
@@ -184,7 +188,7 @@ export default function Home() {
           );
 
           //img
-          skills.fromTo(
+          skill.fromTo(
             g(`#skills li:nth-of-type(${i}) img`),
             {
               x: -50,
