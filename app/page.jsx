@@ -11,11 +11,13 @@ import axios from "axios";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { gsap } from "gsap";
+import ScrollTrigger from "gsap/ScrollTrigger";
 
 const inter = Inter({ subsets: ["latin"] });
 const ubuntu = Ubuntu({ subsets: ["latin"], weight: ["700", "300", "500"] });
 
 export default function Home() {
+  gsap.registerPlugin(ScrollTrigger);
   const skills = [
     {
       img: "mongodb.svg",
@@ -110,27 +112,245 @@ export default function Home() {
   useLayoutEffect(() => {
     const ctx = gsap.context(() => {
       const g = gsap.utils.selector(ref);
-      const hero = new gsap.timeline();
-      const skills = new gsap.timeline();
+      const hero = gsap.timeline();
+      const skills = gsap.timeline();
+      const projects = gsap.timeline();
+      const contact = gsap.timeline();
 
-      hero
-        .from(g("#main header h1"), { x: 200, opacity: 0 })
-        .from(g("#hero p"), { x: 100, opacity: 0 }, 0.3)
-        .from(g("#hero h1"), { opacity: 0, y: 100 }, 0.6)
-        .fromTo(
-          g("#heroButton"),
-          { y: 50, opacity: 0 },
-          {
-            y: 0,
-            opacity: 1,
-            onComplete: () => {
-              skills.play();
+      const heroAnimate = (() => {
+        hero
+          .from(g("#main header h1"), { x: 200, opacity: 0 })
+          .from(g("#hero p"), { x: 100, opacity: 0 }, 0.3)
+          .from(g("#hero h1"), { opacity: 0, y: 100 }, 0.6)
+          .fromTo(
+            g("#heroButton"),
+            { y: 50, opacity: 0 },
+            {
+              y: 0,
+              opacity: 1,
             },
-          },
-          0.8
-        );
+            0.8
+          );
+      })();
 
-      skills.from(g("#skills h3"), { x: 200, opacity: 1.5 });
+      const skillsAnimate = (() => {
+        skills.from(g("#skills h3"), {
+          x: 50,
+          opacity: 0,
+          scrollTrigger: {
+            trigger: "#skills h3",
+            start: "top 80%",
+            end: "top 90%",
+            scrub: 1,
+          },
+        });
+        for (var i = 1; i < 13; i++) {
+          //li
+          skills.fromTo(
+            g(`#skills li:nth-of-type(${i})`),
+            {
+              y: 80,
+              opacity: 0,
+            },
+            {
+              y: 0,
+              opacity: 1,
+              scrollTrigger: {
+                trigger: `#skills li:nth-of-type(${i})`,
+                start: "top 80%",
+                end: "top 70%",
+                scrub: 1,
+              },
+            }
+          );
+
+          //p
+          skills.fromTo(
+            g(`#skills li:nth-of-type(${i}) p`),
+            {
+              x: 50,
+              opacity: 0,
+            },
+            {
+              x: 0,
+              opacity: 1,
+              scrollTrigger: {
+                trigger: `#skills li:nth-of-type(${i}) p`,
+                start: "top 80%",
+                end: "top 70%",
+                scrub: 1,
+              },
+            }
+          );
+
+          //img
+          skills.fromTo(
+            g(`#skills li:nth-of-type(${i}) img`),
+            {
+              x: -50,
+              opacity: 0,
+            },
+            {
+              x: 0,
+              opacity: 1,
+              scrollTrigger: {
+                trigger: `#skills li:nth-of-type(${i}) img`,
+                start: "top 80%",
+                end: "top 70%",
+                scrub: 1,
+              },
+            }
+          );
+        }
+      })();
+
+      const projectAnimate = (() => {
+        projects.from(g("#projects h3"), {
+          x: 50,
+          opacity: 0,
+          scrollTrigger: {
+            trigger: "#projects h3",
+            start: "top 80%",
+            end: "top 90%",
+            scrub: 1,
+          },
+        });
+        for (var i = 1; i < 13; i++) {
+          //li
+          projects.fromTo(
+            g(`#projects li:nth-of-type(${i})`),
+            {
+              y: 80,
+              opacity: 0,
+            },
+            {
+              y: 0,
+              opacity: 1,
+              scrollTrigger: {
+                trigger: `#projects li:nth-of-type(${i})`,
+                start: "top 80%",
+                end: "top 70%",
+                scrub: 1,
+              },
+            }
+          );
+
+          //h3
+          projects.fromTo(
+            g(`#projects li:nth-of-type(${i}) h3`),
+            {
+              x: 50,
+              opacity: 0,
+            },
+            {
+              x: 0,
+              opacity: 1,
+              scrollTrigger: {
+                trigger: `#projects li:nth-of-type(${i}) h3`,
+                start: "top 80%",
+                end: "top 70%",
+                scrub: 1,
+              },
+            }
+          );
+
+          //img
+          projects.fromTo(
+            g(`#projects li:nth-of-type(${i}) img`),
+            {
+              y: 50,
+              scale: 1.2,
+              opacity: 0,
+            },
+            {
+              scale: 1,
+              y: 0,
+              opacity: 1,
+              scrollTrigger: {
+                trigger: `#projects li:nth-of-type(${i}) img`,
+                start: "top 80%",
+                end: "top 70%",
+                scrub: 1,
+              },
+            }
+          );
+
+          //p
+          projects.fromTo(
+            g(`#projects li:nth-of-type(${i}) p`),
+            {
+              x: -50,
+              opacity: 0,
+            },
+            {
+              x: 0,
+              opacity: 1,
+              scrollTrigger: {
+                trigger: `#projects li:nth-of-type(${i}) p`,
+                start: "top 90%",
+                end: "top 80%",
+                scrub: 1,
+              },
+            }
+          );
+        }
+      })();
+
+      const contactAnimate = (() => {
+        //h3
+        contact
+          .fromTo(
+            g("#contact h3"),
+            {
+              x: 50,
+              opacity: 0,
+            },
+            {
+              x: 0,
+              opacity: 1,
+              scrollTrigger: {
+                trigger: g("#contact h3"),
+                start: "top 90%",
+                end: "top 80%",
+                scrub: 1,
+              },
+            }
+          )
+
+          //input
+
+          .fromTo(
+            g("#form input"),
+            { y: 30, opacity: 0 },
+            {
+              y: 0,
+              opacity: 1,
+              scrollTrigger: {
+                trigger: g("#form input"),
+                start: "top 80%",
+                end: "top 70%",
+                scrub: 1,
+              },
+            }
+          )
+
+          //textarea
+
+          .fromTo(
+            g("#form textarea"),
+            { y: 30, opacity: 0 },
+            {
+              y: 0,
+              opacity: 1,
+              scrollTrigger: {
+                trigger: g("#form textarea"),
+                start: "top 80%",
+                end: "top 70%",
+                scrub: 1,
+              },
+            }
+          );
+      })();
     });
 
     return () => ctx.revert();
@@ -169,7 +389,7 @@ export default function Home() {
         ))}
       </div>
 
-      <div className={styles.projects}>
+      <div id="projects" className={styles.projects}>
         <h3 className={ubuntu.className}>Projects</h3>
 
         <li onClick={() => router.push("https://crayonne-jotter.vercel.app")}>
@@ -229,10 +449,10 @@ export default function Home() {
         </button>
       </div> */}
 
-      <div className={styles.contact}>
+      <div id="contact" className={styles.contact}>
         <h3 className={ubuntu.className}>Contact</h3>
 
-        <div className={styles.form}>
+        <div id="form" className={styles.form}>
           <input
             value={input.from}
             onChange={(e) =>

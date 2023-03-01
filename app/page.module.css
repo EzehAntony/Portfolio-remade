@@ -5,6 +5,8 @@
   padding: 0 10px;
   color: white;
   background-color: black;
+  max-width: 100%;
+  overflow-x: hidden;
 }
 
 .main header {
@@ -146,6 +148,7 @@
   justify-content: center;
   align-items: center;
   transition: 0.4s;
+  overflow-x: hidden;
 }
 
 .skills li:hover {
@@ -177,6 +180,7 @@
   list-style: none;
   padding: 10px;
   margin: 15px 0;
+  overflow: hidden;
 }
 
 .projects li h3 {

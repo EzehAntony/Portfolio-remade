@@ -1,6 +1,8 @@
 import "./globals.css";
-
+import ScrollTrigger from "gsap/ScrollTrigger";
+import gsap from "gsap";
 export default function RootLayout({ children }) {
+  gsap.registerPlugin(ScrollTrigger);
   return (
     <html lang="en">
       {/*
