@@ -4,12 +4,13 @@ import Image from "next/image";
 import { Inter, Ubuntu } from "@next/font/google";
 import styles from "./page.module.css";
 import { useRouter } from "next/navigation";
-import { useState } from "react";
+import { useEffect, useLayoutEffect, useRef, useState } from "react";
 import Snowfall from "react-snowfall";
 import { ClapSpinner } from "react-spinners-kit";
 import axios from "axios";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { gsap } from "gsap";
 
 const inter = Inter({ subsets: ["latin"] });
 const ubuntu = Ubuntu({ subsets: ["latin"], weight: ["700", "300", "500"] });
@@ -103,15 +104,47 @@ export default function Home() {
     console.log(from, text);
   };
   const router = useRouter();
+
+  const ref = useRef(null);
+
+  useLayoutEffect(() => {
+    const ctx = gsap.context(() => {
+      const g = gsap.utils.selector(ref);
+      const hero = new gsap.timeline();
+      const skills = new gsap.timeline();
+
+      hero
+        .from(g("#main header h1"), { x: 200, opacity: 0 })
+        .from(g("#hero p"), { x: 100, opacity: 0 }, 0.3)
+        .from(g("#hero h1"), { opacity: 0, y: 100 }, 0.6)
+        .fromTo(
+          g("#heroButton"),
+          { y: 50, opacity: 0 },
+          {
+            y: 0,
+            opacity: 1,
+            onComplete: () => {
+              skills.play();
+            },
+          },
+          0.8
+        );
+
+      skills.from(g("#skills h3"), { x: 200, opacity: 1.5 });
+    });
+
+    return () => ctx.revert();
+  }, []);
+
   return (
-    <main className={styles.main}>
+    <main className={styles.main} ref={ref} id="main">
       <header>
         <h1 className={ubuntu.className}>
           Anthony <br /> ezeh
         </h1>
       </header>
 
-      <div className={styles.hero}>
+      <div id="hero" className={styles.hero}>
         <h1 className={ubuntu.className}>Web Developer</h1>
         <p className={ubuntu.className}>
           Hello, i'm Anthony Ezeh, a web developer with a few years of
@@ -121,15 +154,15 @@ export default function Home() {
           ability, communication ability, and ability to carry out research
           pertaining to what is required for a job.
         </p>
-        <button className={ubuntu.className}>
+        <button id="heroButton" className={ubuntu.className}>
           Let's talk <img src="/upright.svg" alt="" />
         </button>
       </div>
 
-      <div className={styles.skills}>
+      <div className={styles.skills} id="skills">
         <h3 className={ubuntu.className}>Skills</h3>
-        {skills.map((e) => (
-          <li>
+        {skills.map((e, i) => (
+          <li key={i}>
             <img src={e.img} alt="" />
             <p className={ubuntu.className}>{e.text}</p>
           </li>
