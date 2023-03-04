@@ -109,31 +109,28 @@ export default function Home() {
 
   const ref = useRef(null);
   const g = gsap.utils.selector(ref);
-  const hero = gsap.timeline();
-  const skill = gsap.timeline();
-  const projects = gsap.timeline();
-  const contact = gsap.timeline();
+  const hero = gsap.timeline({ defaults: { opacity: 0 } });
+  const skill = gsap.timeline({ defaults: { opacity: 0 } });
+  const projects = gsap.timeline({ defaults: { opacity: 0 } });
+  const contact = gsap.timeline({ defaults: { opacity: 0 } });
 
   useLayoutEffect(() => {
     const ctx = gsap.context(() => {
-      gsap.to(g("#main"), 1, {
-        autoAlpha: 0,
+      gsap.to(g("#main *"), 1, {
+        visibility: "visible",
       });
 
-      
       const heroAnimate = (() => {
         hero
-          .from(g("#main header h1"), { x: 200, opacity: 1 })
-          .from(g("#hero p"), { x: 100, opacity: 0 }, 0.3)
-          .from(g("#hero h1"), { opacity: 0, y: 100 }, 0.6)
+          .from(g("#main header"), { x: 100 })
+          .from(g("#hero p"), { x: 100 })
+          .from(g("#hero h1"), { y: 100 })
           .fromTo(
             g("#heroButton"),
-            { y: 50, opacity: 0 },
+            { y: 50 },
             {
               y: 0,
-              opacity: 1,
-            },
-            0.8
+            }
           );
       })();
 

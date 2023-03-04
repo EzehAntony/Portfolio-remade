@@ -8,6 +8,10 @@
   overflow-x: hidden;
 }
 
+.main * {
+  visibility: hidden;
+}
+
 .main header {
   height: 60px;
   width: 100%;
