@@ -12,6 +12,7 @@ import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { gsap } from "gsap";
 import ScrollTrigger from "gsap/ScrollTrigger";
+import { Power4 } from "gsap";
 
 const inter = Inter({ subsets: ["latin"] });
 const ubuntu = Ubuntu({ subsets: ["latin"], weight: ["700", "300", "500"] });
@@ -126,10 +127,9 @@ export default function Home() {
           .from(g("#hero h1"), { y: 100 })
           .from(g("#hero p"), { x: 100 });
         gsap.fromTo(
-          g("#hero #heroButton"),
-          { x: 50, opacity: 0 },
-          { x: 0, opacity: 1 },
-          "<+=1.5"
+          g("#hero button"),
+          { y: 50 },
+          { y: 0, ease: Power4.bounce, delay: 1 }
         );
       })();
 
@@ -374,7 +374,13 @@ export default function Home() {
           ability, communication ability, and ability to carry out research
           pertaining to what is required for a job.
         </p>
-        <button id="heroButton" className={ubuntu.className}>
+        <button
+          onClick={() => {
+            gsap.to("#heroButton"), { duration: 1, scrollTo: "#contact" };
+          }}
+          id="heroButton"
+          className={ubuntu.className}
+        >
           Let's talk <img src="/upright.svg" alt="" />
         </button>
       </div>
