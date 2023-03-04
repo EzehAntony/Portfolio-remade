@@ -123,15 +123,14 @@ export default function Home() {
       const heroAnimate = (() => {
         hero
           .from(g("#main header"), { x: 100 })
-          .from(g("#hero p"), { x: 100 })
           .from(g("#hero h1"), { y: 100 })
-          .fromTo(
-            g("#heroButton"),
-            { y: 50 },
-            {
-              y: 0,
-            }
-          );
+          .from(g("#hero p"), { x: 100 });
+        gsap.fromTo(
+          g("#hero #heroButton"),
+          { x: 50, opacity: 0 },
+          { x: 0, opacity: 1 },
+          "<+=1.5"
+        );
       })();
 
       const skillsAnimate = (() => {

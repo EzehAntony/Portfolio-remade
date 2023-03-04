@@ -27,6 +27,7 @@
   background-image: linear-gradient(45deg, white, aqua);
   background-clip: text;
   transition: 0.8s;
+  text-transform: capitalize;
   animation: textcolor 2s 1s infinite alternate;
 }
 
@@ -347,12 +348,29 @@
   }
 
   .hero {
-    max-width: 700px;
+    height: 100vh;
+    justify-content: center;
+    align-items: center;
   }
 
   .hero h1 {
-    font-size: 80px;
-    max-width: 500px;
+    font-size: 140px;
+  }
+
+  .hero p {
+    max-width: 800px;
+    text-align: center;
+  }
+
+  .hero h1::after {
+    width: 50px;
+    height: 50px;
+  }
+
+  .hero h1::before {
+    left: 80px;
+    width: 50px;
+    height: 50px;
   }
 
   .skills {
