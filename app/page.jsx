@@ -70,6 +70,30 @@ export default function Home() {
     },
   ];
 
+  const project = [
+    {
+      title: "Daniel wylde",
+      img: "/wylde.png",
+      link: "https://danielwylde.com/",
+      description:
+        "An e-commerce application with sleek product displays to a streamlined checkout process. Every aspect of the website has been carefully tailored to enhance the user experience. The responsive design ensures a seamless transition from desktop to mobile, allowing users to explore the world of DanielWylde effortlessly. This project demonstrates my proficiency in creating scalable and visually appealing e-commerce solutions, providing both clients and users with a digital storefront that mirrors the elegance and uniqueness of the DanielWylde brand. Explore the DanielWylde E-Commerce Clothing Store—an embodiment of my commitment to delivering impactful and visually stunning web experiences",
+    },
+    {
+      title: "Jotter notepad",
+      img: "/jotter.png",
+      link: "https://crayonne-jotter.vercel.app",
+      description:
+        "Introducing Jotter, my personalized React Notepad application designed to elevate your note-taking experience. Jotter seamlessly combines user authentication with a dynamic note management system using MongoDB, providing each registered user with an individual space to create, update, and delete notes. With a user-friendly interface, this application ensures a secure and tailored environment for organizing thoughts, ideas, and important information. Leveraging the power of React, Jotter showcases my skills in creating responsive and interactive web applications. Whether you're a student, professional, or anyone seeking an organized digital space, Jotter exemplifies my commitment to delivering user-centric solutions that enhance productivity and streamline daily tasks.",
+    },
+    {
+      title: "Stopwatch",
+      img: "/stopwatch.png",
+      link: "https://crayonnestopwatch.vercel.app/",
+      description:
+        "A sleek and functional timekeeping solution built with the power of React hooks. This innovative stopwatch allows users to effortlessly track time, with features such as start, pause, and reset functionalities. The user-friendly design ensures a seamless experience, making time management a breeze. Powered by React, this application showcases my proficiency in leveraging cutting-edge technologies to create efficient and responsive user interfaces. Whether you need a simple timer for personal use or want to integrate timekeeping features into a larger project, this React Stopwatch Application demonstrates my commitment to delivering intuitive and robust solutions in web development.",
+    },
+  ];
+
   const [input, setInput] = useState({
     from: "",
     text: "",
@@ -357,14 +381,14 @@ export default function Home() {
   }, []);
 
   return (
-    <main className={styles.main} ref={ref} id="main">
-      <header>
+    <main className={`${styles.main} lg:px-20 px-4 `} ref={ref} id="main">
+      <header className="lg:px-20 px-4 ">
         <h1 className={ubuntu.className}>
           Anthony <br /> ezeh
         </h1>
       </header>
 
-      <div id="hero" className={styles.hero}>
+      <div id="hero" className={`${styles.hero}  `}>
         <h1 className={ubuntu.className}>Web Developer</h1>
         <p className={ubuntu.className}>
           Hello, i'm Anthony Ezeh, a web developer with a few years of
@@ -379,13 +403,13 @@ export default function Home() {
             gsap.to("#heroButton"), { duration: 1, scrollTo: "#contact" };
           }}
           id="heroButton"
-          className={ubuntu.className}
+          className={`text-black  ${ubuntu.className}`}
         >
           Let's talk <img src="/upright.svg" alt="" />
         </button>
       </div>
 
-      <div className={styles.skills} id="skills">
+      <div className={` ${styles.skills} lg:px-20 px-4 `} id="skills">
         <h3 className={ubuntu.className}>Skills</h3>
         {skills.map((e, i) => (
           <li key={i}>
@@ -395,53 +419,22 @@ export default function Home() {
         ))}
       </div>
 
-      <div id="projects" className={styles.projects}>
-        <h3 className={ubuntu.className}>Projects</h3>
+      <div id="projects" className="lg:px-20 px-4 my-4">
+        <h3 className={"text-3xl"}>Projects</h3>
 
-        <li onClick={() => router.push("https://crayonne-jotter.vercel.app")}>
-          <h3 className={ubuntu.className}>Jotter</h3>
-          <img src="/jotter.png" alt="" />
-          <p className={ubuntu.className}>
-            A simple notepad web application with user authentication that
-            receives, stores, updates and delete data stored using mongoDB.
-          </p>
-        </li>
-
-        <li onClick={() => router.push("https://crayonnedict.vercel.app/")}>
-          <h3 className={ubuntu.className}>Dictionary</h3>
-          <img src="/dictionary.png" alt="" />
-          <p className={ubuntu.className}>
-            An online dictionary that searches a limited list of words and
-            diplays the data fetched.
-          </p>
-        </li>
-
-        <li onClick={() => router.push("https://amanaui.vercel.app")}>
-          <h3 className={ubuntu.className}>amana</h3>
-          <img src="/amana.png" alt="" />
-          <p className={ubuntu.className}>
-            Amana Landing page, a figma design I was given by a senior ui/ux
-            developer to build and add to my projects.
-          </p>
-        </li>
-
-        <li onClick={() => router.push("https://crayonne-loan.vercel.app")}>
-          <h3 className={ubuntu.className}>Loan app</h3>
-          <img src="/loan.png" alt="" />
-          <p className={ubuntu.className}>
-            Loan app landing page, a figma design i was given by a random ui/ux
-            designer on twitter so i could add to my projectss.
-          </p>
-        </li>
-
-        <li onClick={() => router.push("https://ezehanthony.vercel.app")}>
-          <h3 className={ubuntu.className}>Portfolio</h3>
-          <img src="/portfolio.png" alt="" />
-          <p className={ubuntu.className}>
-            A portfolio website about me that displays the basic data about my
-            coding career.
-          </p>
-        </li>
+        <div className="grid md:grid-cols-2 list-none gap-x-4">
+          {project.map((p) => (
+            <li onClick={() => router.push(p.link)}>
+              <h3
+                className={`bg-colored bg-clip-text my-4 text-transparent text-2xl font-bold capitalize `}
+              >
+                {p.title}
+              </h3>
+              <img src={p.img} alt={p.title} />
+              <p className={`${ubuntu.className} my-4 `}>{p.description}</p>
+            </li>
+          ))}
+        </div>
       </div>
 
       {/*       <div className={styles.coffee}>
@@ -455,7 +448,7 @@ export default function Home() {
         </button>
       </div> */}
 
-      <div id="contact" className={styles.contact}>
+      <div id="contact" className={`${styles.contact} lg:px-20 px-4 `}>
         <h3 className={ubuntu.className}>Contact</h3>
 
         <div id="form" className={styles.form}>
