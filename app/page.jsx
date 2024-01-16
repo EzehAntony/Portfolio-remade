@@ -86,6 +86,13 @@ export default function Home() {
         "Introducing Jotter, my personalized React Notepad application designed to elevate your note-taking experience. Jotter seamlessly combines user authentication with a dynamic note management system using MongoDB, providing each registered user with an individual space to create, update, and delete notes. With a user-friendly interface, this application ensures a secure and tailored environment for organizing thoughts, ideas, and important information. Leveraging the power of React, Jotter showcases my skills in creating responsive and interactive web applications. Whether you're a student, professional, or anyone seeking an organized digital space, Jotter exemplifies my commitment to delivering user-centric solutions that enhance productivity and streamline daily tasks.",
     },
     {
+      title: "Nazario",
+      img: "/nazario.png",
+      link: "https://nazario.vercel.app/",
+      description:
+        "A importation and exportation landing page website with eye-catching UI",
+    },
+    {
       title: "Stopwatch",
       img: "/stopwatch.png",
       link: "https://crayonnestopwatch.vercel.app/",
