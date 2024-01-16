@@ -79,19 +79,20 @@ export default function Home() {
         "An e-commerce application with sleek product displays to a streamlined checkout process. Every aspect of the website has been carefully tailored to enhance the user experience. The responsive design ensures a seamless transition from desktop to mobile, allowing users to explore the world of DanielWylde effortlessly. This project demonstrates my proficiency in creating scalable and visually appealing e-commerce solutions, providing both clients and users with a digital storefront that mirrors the elegance and uniqueness of the DanielWylde brand. Explore the DanielWylde E-Commerce Clothing Store—an embodiment of my commitment to delivering impactful and visually stunning web experiences",
     },
     {
+      title: "Nazario",
+      img: "/nazario.png",
+      link: "https://nazario.vercel.app/",
+      description:
+        "Welcome to my Importation and Exportation Landing Page project, a dynamic and user-centric web platform designed to showcase the services and expertise of a global trade facilitator. This project represents my commitment to creating seamless digital experiences for businesses engaged in international commerce.",
+    },
+    {
       title: "Jotter notepad",
       img: "/jotter.png",
       link: "https://crayonne-jotter.vercel.app",
       description:
         "Introducing Jotter, my personalized React Notepad application designed to elevate your note-taking experience. Jotter seamlessly combines user authentication with a dynamic note management system using MongoDB, providing each registered user with an individual space to create, update, and delete notes. With a user-friendly interface, this application ensures a secure and tailored environment for organizing thoughts, ideas, and important information. Leveraging the power of React, Jotter showcases my skills in creating responsive and interactive web applications. Whether you're a student, professional, or anyone seeking an organized digital space, Jotter exemplifies my commitment to delivering user-centric solutions that enhance productivity and streamline daily tasks.",
     },
-    {
-      title: "Nazario",
-      img: "/nazario.png",
-      link: "https://nazario.vercel.app/",
-      description:
-        "A importation and exportation landing page website with eye-catching UI",
-    },
+
     {
       title: "Stopwatch",
       img: "/stopwatch.png",
