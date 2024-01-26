@@ -80,7 +80,7 @@ export default function Home() {
     },
     {
       title: "Nazario",
-      img: "/naz.png",
+      img: "/nazario.png",
       link: "https://nazario.vercel.app/",
       description:
         "Welcome to my Importation and Exportation Landing Page project, a dynamic and user-centric web platform designed to showcase the services and expertise of a global trade facilitator. This project represents my commitment to creating seamless digital experiences for businesses engaged in international commerce.",
@@ -108,6 +108,12 @@ export default function Home() {
         "A sleek and functional timekeeping solution built with the power of React hooks. This innovative stopwatch allows users to effortlessly track time, with features such as start, pause, and reset functionalities. The user-friendly design ensures a seamless experience, making time management a breeze. Powered by React, this application showcases my proficiency in leveraging cutting-edge technologies to create efficient and responsive user interfaces. Whether you need a simple timer for personal use or want to integrate timekeeping features into a larger project, this React Stopwatch Application demonstrates my commitment to delivering intuitive and robust solutions in web development.",
     },
   ];
+
+  const bottomRef = useRef(null);
+
+  const scrollToBottom = () => {
+    bottomRef.current.scrollIntoView({ behavior: "smooth" });
+  };
 
   const [input, setInput] = useState({
     from: "",
@@ -414,9 +420,7 @@ export default function Home() {
           pertaining to what is required for a job.
         </p>
         <button
-          onClick={() => {
-            gsap.to("#heroButton"), { duration: 1, scrollTo: "#contact" };
-          }}
+          onClick={() => scrollToBottom()}
           id="heroButton"
           className={`text-black  ${ubuntu.className}`}
         >
@@ -463,7 +467,11 @@ export default function Home() {
         </button>
       </div> */}
 
-      <div id="contact" className={`${styles.contact} lg:px-20 px-4 `}>
+      <div
+        id="contact"
+        ref={bottomRef}
+        className={`${styles.contact} lg:px-20 px-4 `}
+      >
         <h3 className={ubuntu.className}>Contact</h3>
 
         <div id="form" className={styles.form}>
