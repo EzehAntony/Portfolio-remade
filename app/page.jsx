@@ -505,36 +505,7 @@ export default function Home() {
       </div>
 
       <footer>
-        <div className={styles.social}>
-          <img
-            src="/facebook.svg"
-            onClick={() =>
-              router.push(
-                "https://www.facebook.com/profile.php?id=100088849056244&mibextid=ZbWKwL"
-              )
-            }
-            alt=""
-          />
-          <img
-            src="/instagram.svg"
-            alt="instagram profile"
-            onClick={() => router.push("https://www.instagram.com/nazvillle")}
-          />
-          <img
-            src="/twitter.svg"
-            onClick={() =>
-              router.push(
-                "https://twitter.com/Nazvillle?t=xW9sj0bfObU9LG6vkx74UQ&s=09"
-              )
-            }
-            alt=""
-          />
-          <img
-            src="/whatsapp.svg"
-            onClick={() => router.push("https://wa.link/1vaasu")}
-            alt=""
-          />
-        </div>
+
         <h3 className={ubuntu.className}>made with love</h3>
       </footer>
       <Snowfall snowflakeCount={30} />
