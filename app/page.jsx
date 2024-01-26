@@ -80,7 +80,7 @@ export default function Home() {
     },
     {
       title: "Nazario",
-      img: "/nazario.png",
+      img: "/nazarioimg.png",
       link: "https://nazario.vercel.app/",
       description:
         "Welcome to my Importation and Exportation Landing Page project, a dynamic and user-centric web platform designed to showcase the services and expertise of a global trade facilitator. This project represents my commitment to creating seamless digital experiences for businesses engaged in international commerce.",
