@@ -74,7 +74,7 @@ export default function Home() {
     {
       title: "Daniel wylde",
       img: "/wylde.png",
-      link: "https://danielwylde.com/",
+      link: "https://www.danielwylde.com/",
       description:
         "An e-commerce application with sleek product displays to a streamlined checkout process. Every aspect of the website has been carefully tailored to enhance the user experience. The responsive design ensures a seamless transition from desktop to mobile, allowing users to explore the world of DanielWylde effortlessly. This project demonstrates my proficiency in creating scalable and visually appealing e-commerce solutions, providing both clients and users with a digital storefront that mirrors the elegance and uniqueness of the DanielWylde brand. Explore the DanielWylde E-Commerce Clothing Store—an embodiment of my commitment to delivering impactful and visually stunning web experiences",
     },
