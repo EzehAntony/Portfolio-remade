@@ -79,6 +79,13 @@ export default function Home() {
         "An e-commerce application with sleek product displays to a streamlined checkout process. Every aspect of the website has been carefully tailored to enhance the user experience.",
     },
     {
+      title: "Nazbrew",
+      img: "/nazbrew.png",
+      link: "https://naz-brew.vercel.app/",
+      description:
+        "Your go-to coffee shop for rich, ethically sourced brews, fresh pastries, and a cozy vibe. Enjoy a welcoming space with local art, live music, and a friendly community atmosphere.",
+    },
+    {
       title: "Nazario",
       img: "/nazarioimg.png",
       link: "https://nazario.vercel.app/",
@@ -86,34 +93,26 @@ export default function Home() {
         "Welcome to my Importation and Exportation Landing Page project, a dynamic and user-centric web platform designed to showcase the services and expertise of a global trade facilitator. This project represents my commitment to creating seamless digital experiences for businesses engaged in international commerce.",
     },
     {
+      title: "Blogville (in progress)",
+      img: "/blogvillee.png",
+      link: "https://blogville-eta.vercel.app/",
+      description:
+        "Embark on a journey of ideas and insights with my upcoming personal blog. This project is a testament to my passion for sharing knowledge, experiences, and musings with a global audience. While the blog is currently under construction, it promises to be a digital haven for those seeking inspiration, information, and a glimpse into my world.",
+    },
+    {
       title: "Nazario Fitness",
       img: "/nazfitness.png",
       link: "https://nazario-fitness.vercel.app",
       description:
-        "Introducing Jotter, my personalized React Notepad application designed to elevate your note-taking experience. Jotter seamlessly combines user authentication with a dynamic note management system using MongoDB, providing each registered user with an individual space to create, update, and delete notes. With a user-friendly interface, this application ensures a secure and tailored environment for organizing thoughts, ideas, and important information. Leveraging the power of React, Jotter showcases my skills in creating responsive and interactive web applications. Whether you're a student, professional, or anyone seeking an organized digital space, Jotter exemplifies my commitment to delivering user-centric solutions that enhance productivity and streamline daily tasks.",
+        "Introducing Nazario Fitness, my personalized gym website. Nazario Fitness: Your gateway to strength and vitality, offering tailored workouts and expert guidance for achieving your fitness goals.",
     },
-    {
+    /*  {
       title: "Jotter notepad",
       img: "/jotter.png",
       link: "https://crayonne-jotter.vercel.app",
       description:
         "Introducing Jotter, my personalized React Notepad application designed to elevate your note-taking experience. Jotter seamlessly combines user authentication with a dynamic note management system using MongoDB, providing each registered user with an individual space to create, update, and delete notes. With a user-friendly interface, this application ensures a secure and tailored environment for organizing thoughts, ideas, and important information. Leveraging the power of React, Jotter showcases my skills in creating responsive and interactive web applications. Whether you're a student, professional, or anyone seeking an organized digital space, Jotter exemplifies my commitment to delivering user-centric solutions that enhance productivity and streamline daily tasks.",
-    },
-    {
-      title: "Blogville (uncompleted) ",
-      img: "/blogville.png",
-      link: "https://blogville.vercel.app",
-      description:
-        "Embark on a journey of ideas and insights with my upcoming personal blog. This project is a testament to my passion for sharing knowledge, experiences, and musings with a global audience. While the blog is currently under construction, it promises to be a digital haven for those seeking inspiration, information, and a glimpse into my world.",
-    },
-
-    {
-      title: "Stopwatch",
-      img: "/stopwatch.png",
-      link: "https://crayonnestopwatch.vercel.app/",
-      description:
-        "A sleek and functional timekeeping solution built with the power of React hooks. This innovative stopwatch allows users to effortlessly track time, with features such as start, pause, and reset functionalities. The user-friendly design ensures a seamless experience, making time management a breeze. Powered by React, this application showcases my proficiency in leveraging cutting-edge technologies to create efficient and responsive user interfaces. Whether you need a simple timer for personal use or want to integrate timekeeping features into a larger project, this React Stopwatch Application demonstrates my commitment to delivering intuitive and robust solutions in web development.",
-    },
+    }, */
   ];
 
   const bottomRef = useRef(null);
