@@ -76,7 +76,7 @@ export default function Home() {
       img: "/wylde.png",
       link: "https://www.danielwylde.com/",
       description:
-        "An e-commerce application with sleek product displays to a streamlined checkout process. Every aspect of the website has been carefully tailored to enhance the user experience. The responsive design ensures a seamless transition from desktop to mobile, allowing users to explore the world of DanielWylde effortlessly. This project demonstrates my proficiency in creating scalable and visually appealing e-commerce solutions, providing both clients and users with a digital storefront that mirrors the elegance and uniqueness of the DanielWylde brand. Explore the DanielWylde E-Commerce Clothing Store—an embodiment of my commitment to delivering impactful and visually stunning web experiences",
+        "An e-commerce application with sleek product displays to a streamlined checkout process. Every aspect of the website has been carefully tailored to enhance the user experience.",
     },
     {
       title: "Nazario",
@@ -84,6 +84,13 @@ export default function Home() {
       link: "https://nazario.vercel.app/",
       description:
         "Welcome to my Importation and Exportation Landing Page project, a dynamic and user-centric web platform designed to showcase the services and expertise of a global trade facilitator. This project represents my commitment to creating seamless digital experiences for businesses engaged in international commerce.",
+    },
+    {
+      title: "Nazario Fitness",
+      img: "/nazfitness.png",
+      link: "https://nazario-fitness.vercel.app",
+      description:
+        "Introducing Jotter, my personalized React Notepad application designed to elevate your note-taking experience. Jotter seamlessly combines user authentication with a dynamic note management system using MongoDB, providing each registered user with an individual space to create, update, and delete notes. With a user-friendly interface, this application ensures a secure and tailored environment for organizing thoughts, ideas, and important information. Leveraging the power of React, Jotter showcases my skills in creating responsive and interactive web applications. Whether you're a student, professional, or anyone seeking an organized digital space, Jotter exemplifies my commitment to delivering user-centric solutions that enhance productivity and streamline daily tasks.",
     },
     {
       title: "Jotter notepad",
@@ -505,7 +512,6 @@ export default function Home() {
       </div>
 
       <footer>
-
         <h3 className={ubuntu.className}>made with love</h3>
       </footer>
       <Snowfall snowflakeCount={30} />
