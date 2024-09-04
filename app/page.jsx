@@ -72,11 +72,18 @@ export default function Home() {
 
   const project = [
     {
+      title: "Nazstore",
+      img: "/nazstore.png",
+      link: "https://www.nazstore.vercel.app/",
+      description:
+        "Developed a Next.js e-commerce site with a focus on beautiful UI using static data. The site features dynamic theme color options, allowing users to choose from over 12 different color themes. Implemented state management with Zustand and styled the application with Tailwind CSS to ensure a modern and responsive design.",
+    },
+    {
       title: "Daniel wylde",
       img: "/wylde.png",
       link: "https://www.danielwylde.com/",
       description:
-        "An e-commerce application with sleek product displays to a streamlined checkout process. Every aspect of the website has been carefully tailored to enhance the user experience.",
+        "An e-commerce site featuring attractive product displays and a smooth checkout process. Every part of the website is designed to make shopping easier and more enjoyable.",
     },
     {
       title: "Nazbrew",
@@ -86,26 +93,13 @@ export default function Home() {
         "Your go-to coffee shop for rich, ethically sourced brews, fresh pastries, and a cozy vibe. Enjoy a welcoming space with local art, live music, and a friendly community atmosphere.",
     },
     {
-      title: "Nazario",
-      img: "/nazarioimg.png",
-      link: "https://nazario.vercel.app/",
+      title: "Investify(in development)",
+      img: "/investify.png",
+      link: "https://zinvestify.vercel.app/home",
       description:
-        "Welcome to my Importation and Exportation Landing Page project, a dynamic and user-centric web platform designed to showcase the services and expertise of a global trade facilitator. This project represents my commitment to creating seamless digital experiences for businesses engaged in international commerce.",
+        "Building a landing page for Investify, a secure and user-friendly platform for cryptocurrency trading, investment, loan requests, and real estate opportunities. Developed using Next.js and TypeScript, with Tailwind CSS for a clean and modern design",
     },
-    {
-      title: "Blogville (in progress)",
-      img: "/blogvillee.png",
-      link: "https://blogville-eta.vercel.app/",
-      description:
-        "Embark on a journey of ideas and insights with my upcoming personal blog. This project is a testament to my passion for sharing knowledge, experiences, and musings with a global audience. While the blog is currently under construction, it promises to be a digital haven for those seeking inspiration, information, and a glimpse into my world.",
-    },
-    {
-      title: "Nazario Fitness",
-      img: "/nazfitness.png",
-      link: "https://nazario-fitness.vercel.app",
-      description:
-        "Introducing Nazario Fitness, my personalized gym website. Nazario Fitness: Your gateway to strength and vitality, offering tailored workouts and expert guidance for achieving your fitness goals.",
-    },
+
     /*  {
       title: "Jotter notepad",
       img: "/jotter.png",
